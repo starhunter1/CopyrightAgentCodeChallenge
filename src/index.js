@@ -2,10 +2,16 @@ const readline = require("readline");
 
 const { getColor } = require('./apiMock');
 
+const minimist = require('minimist');
+
 class ColorClass {
 	constructor() {
-		this.colorOrderJson = process.argv[2]
-		this.syncOn = process.argv[3] == 'true';
+		this.supportedColors = ['green', 'blue', 'red', 'white', 'black']
+
+		const args = minimist(process.argv.slice(2))
+		this.colorsInOrder = args['colors'] ? args['colors'].split(',') : ['green', 'red', 'blue']
+		this.outputHex = args['output'] != 'RGB'
+		this.syncOn = args['sync'] ?? false;
 		this.colors = this.getColorPromises();
 		this.generator = this.colorGenerator()
 
@@ -17,15 +23,15 @@ class ColorClass {
 			input: process.stdin,
 			output: process.stdout,
 		});
-		this.rl.question("Press enter to fetch the next color ", this.fetchColor.bind(this));
+		this.rl.question("Press ENTER to fetch the next color ", this.fetchColor.bind(this));
 	}
 
 	async asynchronouslyFetch() {
 
 		const colors = await Promise.all(this.colors)
-		const hexColors = []
-		colors.forEach(color => color ? hexColors.push(color.HEX) : null)
-		console.log(hexColors);
+		const output = []
+		colors.forEach(color => color ? output.push(color[this.outputHex ? 'HEX' : 'RGB']) : null)
+		console.log(output);
 	}
 
 	async fetchColor(e) {
@@ -35,15 +41,20 @@ class ColorClass {
 			this.rl.close()
 			return;
 		}
-		console.log(color.HEX);
+		console.log(color[this.outputHex ? 'HEX' : 'RGB']);
 		this.synchronouslyFetch();
 	}
 
 	getColorPromises() {
 		const colors = [];
-		const order = JSON.parse(this.colorOrderJson)
-		order.forEach(color => {
-			colors.push(getColor(color));
+		this.colorsInOrder.forEach(color => {
+			if (this.supportedColors.indexOf(color) != -1) {
+				colors.push(getColor(color));
+			} else {
+				console.log('------------------------------')
+				console.log(`!!! The color ${color} is not supported !!!`)
+				console.log('------------------------------')				
+			}
 		});
 		return colors;
 	}
