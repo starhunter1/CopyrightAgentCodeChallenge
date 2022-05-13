@@ -9,7 +9,7 @@ class ColorClass {
 		this.supportedColors = ['green', 'blue', 'red', 'white', 'black']
 
 		const args = minimist(process.argv.slice(2))
-		this.colorsInOrder = args['colors'] ? args['colors'].split(',') : ['green', 'red', 'blue']
+		this.colorsInOrder = args['colors'] && args['colors'].split ? args['colors'].split(',') : ['green', 'red', 'blue']
 		this.outputHex = args['output'] != 'RGB'
 		this.syncOn = args['sync'] ?? false;
 		this.colors = this.getColorPromises();
