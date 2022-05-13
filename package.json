@@ -6,12 +6,16 @@
   "author": "John Doe",
   "license": "UNLICENSED",
   "scripts": {
-    "req1": "node ./src/index.js '[\"green\",\"blue\", \"red\"]'",
-    "req2": "node ./src/index.js '[\"green\",\"blue\", \"red\"]'",
-    "req3": "node ./src/index.js '[\"blue\",\"green\", \"red\"]'",
-    "req4": "node ./src/index.js '[\"blue\",\"green\", \"red\", \"white\", \"black\"]'",
-    "req5": "node ./src/index.js '[\"blue\",\"green\", \"red\"]'",
-    "req6": "node ./src/index.js '[\"blue\",\"green\", \"red\", \"white\", \"black\"]' true", 
-    "req7": "node ./src/index.js '[\"blue\",\"green\", \"red\", \"white\", \"black\"]' false" 
+    "req1": "node ./src/index.js",
+    "req2": "node ./src/index.js --colors=green,blue,red",
+    "req3": "node ./src/index.js --colors=blue,green,red",
+    "req4": "node ./src/index.js --colors=white,black",
+    "req5": "node ./src/index.js --colors=blue,green,red --output=RGB",
+    "req6": "node ./src/index.js --colors=blue,green,red",
+    "req7": "node ./src/index.js --colors=blue,green,red,white,black --sync",
+    "req8": "node ./src/index.js --colors=blue,orange,red,'white':,black,: --sync"
+  },
+  "dependencies": {
+    "minimist": "^1.2.6"
   }
 }
