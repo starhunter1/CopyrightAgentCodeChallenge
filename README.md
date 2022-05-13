@@ -26,28 +26,28 @@ OBS: The API mock must be used and it must not be changed.
 - The solution requires to install npm packages (just for spice)
 
 ### Execute npm scripts for each requirement
-- It must be possible to run the program and get back the colors green, blue and red in HEX format.
+- It must be possible to run the program and get back the colors green, blue and red in HEX format.\
 `npm run req1`
 
-- It must be possible to define the colors using their names like red, blue and green.
+- It must be possible to define the colors using their names like red, blue and green.\
 `npm run req2`
 
-- It must be possible to define the order the colors are returned.
+- It must be possible to define the order the colors are returned.\
 `npm run req3`
 
-- The program must support the colors white and black.
+- The program must support the colors white and black.\
 `npm run req4`
 
-- The program must be able to return the RGB values.
+- The program must be able to return the RGB values.\
 `npm run req5`
 
-- It must be possible to run the program asynchronously getting all the colors at the same time
+- It must be possible to run the program asynchronously getting all the colors at the same time\
 `npm run req6`
 
-- It must be possible to run the program synchronously getting one color a time
+- It must be possible to run the program synchronously getting one color a time\
 `npm run req7`
 
-- Error handling
+- Error handling\
 `npm run req8`
 
 
