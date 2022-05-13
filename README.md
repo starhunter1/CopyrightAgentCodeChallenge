@@ -22,8 +22,8 @@ OBS: The API mock must be used and it must not be changed.
 # Solution
 
 ### Prerequisites
-#### Node >= v16
-#### The solution requires to install npm packages (just for spice)
+- Node >= v16
+- The solution requires to install npm packages (just for spice)
 
 ### Execute npm scripts for each requirement
 - It must be possible to run the program and get back the colors green, blue and red in HEX format.
