@@ -54,16 +54,16 @@ The solution requires to install npm packages (just for spice)
 ### Command arguments
 
 `--colors`
-default: 'green,red,blue'
-description: a commaseperated list of colors by name in order for output
-valid values: 'green,red,blue,white,black'
+'default': 'green,red,blue'
+'description': a commaseperated list of colors by name in order for output
+'valid values': 'green,red,blue,white,black'
 
 `--output`
-default: HEX
-description: the output format 
-valid values: HEX or RGB
+'default': HEX
+'description': the output format 
+'valid values': HEX or RGB
 
 `--sync`
-default: false
-description: flag to enable synchronously fetching colors one a time
-valid values: boolean
+'default': false
+'description': flag to enable synchronously fetching colors one a time
+'valid values': boolean
